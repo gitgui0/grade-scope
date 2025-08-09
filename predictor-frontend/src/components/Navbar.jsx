@@ -49,7 +49,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                 className="hidden sm:block text-transparent text-lg font-bold bg-clip-text bg-gradient-to-r dark:from-sky-400 dark:to-blue-600
               from-sky-400 to-purple-600"
               >
-                Grade Predictor
+                Grade Scope
               </p>
             </Link>
             <div className="flex items-center gap-4 sm:gap-6 lg:gap-16 text-sm font-medium text-neutral-700 dark:text-neutral-300">
