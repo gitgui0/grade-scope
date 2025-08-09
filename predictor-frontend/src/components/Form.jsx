@@ -3,7 +3,6 @@ import FieldData from "./FieldData";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 const stepConfig = [
   {
     title: "Personal & Health",
@@ -15,7 +14,7 @@ const stepConfig = [
         name: "age",
         label: "Age",
         type: "number",
-        min: 0,
+        min: 11,
         max: 28,
         required: true,
       },
@@ -365,16 +364,13 @@ const Form = ({
     };
 
     try {
-      const response = await axios.post(
-        baseString + "predict",
-        payload
-      );
+      const response = await axios.post(baseString + "predict", payload);
 
       setPredictionData(response.data);
       setUserData(payload);
       closeForm();
     } catch (error) {
-      toast.error("There was an error submitting the prediction.")
+      toast.error("There was an error submitting the prediction.");
     }
   };
 
@@ -450,7 +446,7 @@ const Form = ({
           )}
 
           {/* Step Fields */}
-          <div className="space-y-6">
+          <div className=" sm:space-y-4 md:space-y-6">
             {currentStep.fields.map((field) => (
               <FieldData
                 isStepValid={isStepValid}
@@ -484,10 +480,10 @@ const Form = ({
               <></>
             )}
             {!authorized && (
-              <div className="flex itesm-center justify-center w-full">
-                <p className="text-red-500 dark:text-red-600 text-center w-1/2 leading-tight">
-                  We are sorry! Our service is currently down and we won't be
-                  able to handle your information. Please refresh the page.
+              <div className="flex items-center justify-center w-full">
+                <p className="absolute left-1/2 -translate-x-1/2 ml-auto w-1/4 sm:w-1/2  mr-4 sm:mr-0 text-xs sm:text-sm md:text-md text-red-500 dark:text-red-600 text-center leading-tight">
+                  Our service is<br className="md:hidden" /> currently down.{" "}
+                  <span className="hidden md:block">Please refresh the page. We are sorry.</span>{" "}
                 </p>
               </div>
             )}
@@ -495,7 +491,7 @@ const Form = ({
               <button
                 onClick={handleNext}
                 disabled={!stepValid}
-                className={`ml-auto text-sm sm:text-md px-6 lg:px-10 py-2 rounded-lg 
+                className={`ml-auto text-xs sm:text-sm sm:text-md px-4 sm:px-6 lg:px-10 py-2 rounded-lg 
               ${
                 stepValid
                   ? "bg-blue-500 dark:bg-blue-700 hover:dark:bg-blue-800 text-white hover:bg-blue-600"

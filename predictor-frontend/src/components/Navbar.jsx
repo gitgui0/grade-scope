@@ -37,15 +37,22 @@ const Navbar = ({ isDark, setIsDark }) => {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed top-7 flex justify-center z-50 w-screen "
         >
-          <div className="w-[75%] backdrop-blur-md bg-white/70 dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800 shadow-lg rounded-3xl pl-6 pr-2 py-3 flex justify-between items-center space-x-4">
-            <Link
-              to="/"
-              className="select-none text-transparent text-lg font-bold bg-clip-text bg-gradient-to-r dark:from-sky-400 dark:to-blue-600
+          <div className="w-[90%] sm:w-[75%] backdrop-blur-md bg-white/70 dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800 shadow-lg rounded-3xl pl-6 pr-2 py-3 flex justify-between items-center ">
+            <Link to="/" className="select-none ">
+              <p
+                className=" sm:hidden text-transparent text-lg font-bold bg-clip-text bg-gradient-to-r dark:from-sky-400 dark:to-blue-600
               from-sky-400 to-purple-600"
-            >
-              GradePredictor
+              >
+                GP
+              </p>
+              <p
+                className="hidden sm:block text-transparent text-lg font-bold bg-clip-text bg-gradient-to-r dark:from-sky-400 dark:to-blue-600
+              from-sky-400 to-purple-600"
+              >
+                Grade Predictor
+              </p>
             </Link>
-            <div className="flex items-center gap-6 lg:gap-16 text-sm font-medium text-neutral-700 dark:text-neutral-300">
+            <div className="flex items-center gap-4 sm:gap-6 lg:gap-16 text-sm font-medium text-neutral-700 dark:text-neutral-300">
               <Link
                 to="/"
                 className={`select-none hover:underline underline-offset-4 ${

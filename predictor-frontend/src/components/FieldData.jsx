@@ -19,6 +19,10 @@ const FieldData = ({
 }) => {
   const [error, setError] = useState(null);
 
+  function hasSpecialChars(input) {
+    return !/^\d+$/.test(input);
+  }
+
   const validateValue = (val) => {
     onChange(val); // Always update parent
     if (required && (val === "" || val === null || val === undefined)) {
@@ -52,7 +56,7 @@ const FieldData = ({
           *
         </span>
       )}
-      {label==="Name" && (
+      {label === "Name" && (
         <span className="italic text-xs text-neutral-500 dark:text-neutral-400 dark:text-opacity-90 ml-1">
           Optional
         </span>
@@ -68,7 +72,7 @@ const FieldData = ({
 
   if (type === "checkbox") {
     return (
-      <div className="mb-4">
+      <div className="mb-2 sm:mb-4">
         <Divider />
         {labelTag}
         {infoTag}
@@ -99,7 +103,7 @@ const FieldData = ({
 
   if (type === "text") {
     return (
-      <div className="mb-6">
+      <div className="mb-2 sm:mb-4">
         <Divider />
         {labelTag}
         {infoTag}
@@ -130,17 +134,35 @@ const FieldData = ({
 
   if (type === "number") {
     return (
-      <div className="mb-6">
+      <div className="mb-2 sm:mb-4">
         <Divider />
         {labelTag}
         {infoTag}
         <input
           type="number"
+          inputMode="numeric"
+          pattern="[0-9]*"
           name={name}
-          value={value || ""}
+          value={value ?? ""}
           min={min}
           max={max}
-          onChange={(e) => validateValue(Number(e.target.value))}
+          onChange={(e) => {
+            const val = e.target.value;
+
+            const string = e.target.value.toString();
+            // Allow empty input for erasing
+            if (val === "") {
+              validateValue("");
+              return;
+            }
+
+            // Truncate and validate
+            if (name == "age") {
+              validateValue(Math.trunc(Number(val)));
+            } else {
+              validateValue(Number(val));
+            }
+          }}
           onBlur={(e) => {
             const val = e.target.value;
             if (required && !val) {
@@ -160,7 +182,7 @@ const FieldData = ({
 
   // Default: slider
   return (
-    <div className="mb-10">
+    <div className="mb-4 sm:mb-7 md:mb-10">
       <Divider />
       {labelTag}
       {infoTag}

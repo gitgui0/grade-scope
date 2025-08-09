@@ -4,12 +4,11 @@ import axios from "axios";
 import Form from "./Form";
 import ResultPage from "./ResultPage";
 
-import { toast } from "react-toastify";
 
-function PredictPage({ isDark }) {
+
+function PredictPage({ isDark, isServerUp, serverUp }) {
   const baseString = process.env.REACT_APP_BACKEND_URL;
 
-  const [isServerUp, setIsServerUp] = useState(false);
   const [userName, setUserName] = useState("");
   const [receivedResults, setReceivedResults] = useState(false);
   const [predictionData, setPredictionData] = useState({});
@@ -64,59 +63,32 @@ function PredictPage({ isDark }) {
     }));
   };
 
-  const serverUp = async () => {
-    const maxRetries = 3;
-    const retryDelay = 5000; // 5 seconds between retries
-    const baseUrl = baseString + "health";
-
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const response = await axios.get(baseUrl, { timeout: 1500 }); // 1.5s timeout
-        if (response.status === 200) {
-          return true; // Server is awake
-        }
-      } catch (error) {
-        if (error.code === "ECONNABORTED") {
-          // Timeout - likely sleeping, retry
-          if (attempt < maxRetries) {
-            await new Promise((r) => setTimeout(r, retryDelay));
-            continue;
-          }
-        }
-        // For other errors or retries exhausted, break and notify
-        break;
-      }
+  useEffect(() => {
+    if(!serverUp){
+      serverUp();
     }
 
-    toast.warning(
-      "Server is currently down or sleeping. It will be up very shortly."
-    );
-    return false;
-  };
-
-  useEffect(() => {
-    serverUp().then((res) => {
-      setIsServerUp(res);
-    });
-  }, []);
+  }, [isServerUp])
+  
+  
   return (
-    <div className="wrapper px-10 py-40 md:px-15 lg:px-20 xl:px-40 h-full flex flex-col space-y-24 bg-neutral-50 dark:bg-neutral-950">
-      <main className="px-4 sm:px-6 lg:px-8">
+    <div className="wrapper py-40 sm:px-10 md:px-15 lg:px-20 xl:px-40 h-full flex flex-col space-y-24 bg-neutral-50 dark:bg-neutral-950">
+      <main className="px-2 sm:px-6 lg:px-8">
         {receivedResults ? (
           <>
             <ResultPage
               name={userName}
               results={predictionData}
-              userData={userData}
+              userD9ata={userData}
             />
             <button onClick={() => setReceivedResults(false)}></button>
           </>
         ) : (
-          <div className="flex flex-col items-center space-y-8">
-            <h1 className="text-6xl text-center tracking-tight md:text-5xl font-bold text-neutral-900 dark:text-neutral-50 pl-2">
+          <div className="flex px-2 sm:px-4 md:px-5 flex-col items-center space-y-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center tracking-tight font-bold text-neutral-900 dark:text-neutral-50 pl-2">
               Ready to find out your grade?
             </h1>
-            <p className="text-2xl mt-10 text-center text-neutral-700 dark:text-neutral-300">
+            <p className="text-lg sm:text-xl md:text-2xl mt-10 text-center text-neutral-700 dark:text-neutral-300">
               Fill out the form below, and find out quickly.
             </p>
             <Form

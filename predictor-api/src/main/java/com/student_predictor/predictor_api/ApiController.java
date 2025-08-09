@@ -70,7 +70,18 @@ public class ApiController {
 
     @GetMapping("/health")
     public ResponseEntity<Map<String,String>> health(){
-        return ResponseEntity.ok(Map.of("status","Service is healthy"));
+        RestTemplate restTemplate = new RestTemplate();
+        String url = mlApiUrl + "health";
+        try {
+            ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+            if (response.getStatusCodeValue() == 200) {
+                return ResponseEntity.ok(Map.of("status", "Service is healthy"));
+            } else {
+                return ResponseEntity.status(response.getStatusCode()).body(Map.of("status", "Service is not healthy"));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(Map.of("status", "Error contacting service"));
+        }
     }
 
     @GetMapping("*")
@@ -147,7 +158,7 @@ public class ApiController {
 
         HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
 
-        ResponseEntity<Map> response = restTemplate.postForEntity(mlApiUrl, request, Map.class);
+        ResponseEntity<Map> response = restTemplate.postForEntity(mlApiUrl + "predict", request, Map.class);
 
         if (!response.getStatusCode().is2xxSuccessful()) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", "ML service failed"));

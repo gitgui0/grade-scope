@@ -1,0 +1,7 @@
+com\student_predictor\predictor_api\ApiController.class
+com\student_predictor\predictor_api\FilterConfig.class
+com\student_predictor\predictor_api\CorsConfig.class
+com\student_predictor\predictor_api\CorsConfig$1.class
+com\student_predictor\predictor_api\RateLimiterFilter.class
+com\student_predictor\predictor_api\StudentInput.class
+com\student_predictor\predictor_api\PredictorApiApplication.class

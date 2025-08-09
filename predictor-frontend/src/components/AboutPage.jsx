@@ -3,18 +3,18 @@ import React from "react";
 const AboutPage = () => {
   return (
     <>
-      <div className="wrapper px-10 py-40 md:px-15 lg:px-20 xl:px-40 h-full flex flex-col space-y-24 bg-neutral-50 dark:bg-neutral-950">
+      <div className="wrapper px-5 py-40 sm:px-10  md:px-15 lg:px-20 xl:px-40 h-full flex flex-col space-y-24 bg-neutral-50 dark:bg-neutral-950">
         <div className="about-start">
-          <h1 className="text-6xl text-left tracking-tight md:text-5xl font-bold text-neutral-900 dark:text-neutral-50 pl-2">
+          <h1 className="text-4xl md:text-6xl text-left tracking-tight font-bold text-neutral-900 dark:text-neutral-50 pl-2">
             About the Project
           </h1>
-          <p className="text-2xl mt-10 text-neutral-800 dark:text-neutral-200 max-w-3xl pl-2">
+          <p className="text-xl sm:text-2xl mt-10 text-neutral-800 dark:text-neutral-200 max-w-3xl pl-2">
             Predict Your Final Grade isn’t <span className="italic">just</span>{" "}
             a final grade calculator.
           </p>
 
-          <div className="about-description pl-2 mt-6 space-y-5">
-            <p className="text-lg mt-10 text-neutral-800 dark:text-neutral-200 max-w-3xl ">
+          <div className="about-description pl-2 my-6 sm:mb-0 space-y-5">
+            <p className="text-md sm:text-lg mt-10 text-neutral-800 dark:text-neutral-200 max-w-3xl ">
               It's a very robust,{" "}
               <span className="text-blue-800 font-semibold  dark:text-sky-500 ">
                 data-driven system
@@ -23,7 +23,7 @@ const AboutPage = () => {
               based on a range of academic and behavioral factors.
             </p>
 
-            <p className="mt-4 text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl ">
+            <p className="mt-4 text-md sm:text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl ">
               At its core, the system bridges two often-separated realities: how
               you study and how you live. Most predictors focus solely on
               grades. Ours acknowledges that academic success also depends on
@@ -34,7 +34,7 @@ const AboutPage = () => {
               . .
             </p>
 
-            <p className="mt-4 text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl ">
+            <p className="mt-4 text-md sm:text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl ">
               A low grade doesn’t always reflect a lack of <b> intelligence </b>{" "}
               — sometimes,{" "}
               <span className="italic">
@@ -42,7 +42,7 @@ const AboutPage = () => {
               </span>
               .
             </p>
-            <p className="mt-4 text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl ">
+            <p className="mt-4 text-md sm:text-lg text-neutral-700 dark:text-neutral-300 max-w-3xl ">
               This project aims to{" "}
               <span className="italic text-blue-800 font-semibold dark:text-sky-500">
                 uncover that difference
@@ -51,13 +51,13 @@ const AboutPage = () => {
             </p>
           </div>
 
-          <div>
-            <ul className="grid grid-cols-1 lg:grid-cols-2  p-10 pb-16 rounded-2xl dark:bg-transparent dark:shadow-none  pl-4 mt-10 gap-x-8 gap-y-5">
-              <li className="flex items-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <span className="text-black dark:text-white text-4xl select-none">
+          <div className="flex flex-col justify-center">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 py-5 px-0 sm:px-5 sm:p-7 md:p-10 pb-4 sm:pb-8 md:pb-16 rounded-2xl dark:bg-transparent dark:shadow-none sm:mt-5 md:mt-10 gap-x-8 gap-y-3 sm:gap-y-5">
+              <li className="flex items-center justify-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <span className="hidden sm:inline text-black dark:text-white text-4xl select-none">
                   •
                 </span>
-                <span className="ml-4">
+                <span className="sm:ml-4">
                   <p className="text-2xl text-left tracking-tight text-neutral-800 dark:text-neutral-100">
                     Powered by XGBoost — a top-tier ML model for regression
                     accuracy
@@ -70,11 +70,11 @@ const AboutPage = () => {
                 </span>
               </li>
 
-              <li className="flex items-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <span className="text-black dark:text-white text-4xl select-none">
+              <li className="flex items-center justify-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <span className="hidden sm:inline text-black dark:text-white text-4xl select-none">
                   •
                 </span>
-                <span className="ml-4">
+                <span className="sm:ml-4">
                   <p className="text-2xl text-left tracking-tight text-neutral-800 dark:text-neutral-100">
                     Dynamic advice engine based on behavioral-performance
                     alignment.
@@ -89,11 +89,11 @@ const AboutPage = () => {
                 </span>
               </li>
 
-              <li className="flex items-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <span className="text-black dark:text-white text-4xl select-none">
+              <li className="flex items-center justify-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <span className="hidden sm:inline text-black dark:text-white text-4xl select-none">
                   •
                 </span>
-                <span className="ml-4">
+                <span className="sm:ml-4">
                   <p className="text-2xl text-left tracking-tight text-neutral-800 dark:text-neutral-100">
                     Personalized insights, not just predictions.
                   </p>
@@ -106,11 +106,11 @@ const AboutPage = () => {
                 </span>
               </li>
 
-              <li className="flex items-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <span className="text-black dark:text-white text-4xl select-none">
+              <li className="flex items-center justify-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <span className="hidden sm:inline text-black dark:text-white text-4xl select-none">
                   •
                 </span>
-                <span className="ml-4">
+                <span className="sm:ml-4">
                   <p className="text-2xl text-left tracking-tight text-neutral-800 dark:text-neutral-100">
                     Designed for real students, not just ideal data.
                   </p>
@@ -123,11 +123,11 @@ const AboutPage = () => {
                 </span>
               </li>
 
-              <li className="flex items-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <span className="text-black dark:text-white text-4xl select-none">
+              <li className="flex items-center justify-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <span className="hidden sm:inline text-black dark:text-white text-4xl select-none">
                   •
                 </span>
-                <span className="ml-4">
+                <span className="sm:ml-4">
                   <p className="text-2xl text-left tracking-tight text-neutral-800 dark:text-neutral-100">
                     Real-world inspired: trained on hundreds of anonymized
                     student records.
@@ -141,11 +141,11 @@ const AboutPage = () => {
                 </span>
               </li>
 
-              <li className="flex items-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <span className="text-black dark:text-white text-4xl select-none">
+              <li className="flex items-center justify-center gap-4 bg-white dark:bg-neutral-900 bg-opacity-40 p-5 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <span className="hidden sm:inline text-black dark:text-white text-4xl select-none">
                   •
                 </span>
-                <span className="ml-4">
+                <span className="sm:ml-4">
                   <p className="text-2xl text-left tracking-tight text-neutral-800 dark:text-neutral-100">
                     Powered by proven tools.
                   </p>
