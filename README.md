@@ -1,7 +1,4 @@
 <img src="https://gradepredictor-blond.vercel.app/logo512.png" height="64px"/>
-
-URL: https://gradepredictor-blond.vercel.app/logo512.png
-
 ---
 
 **GradeScope** is a lightweight, machine learning–powered grade predictor. Given data on student habits and background, it intelligently estimates the final score using a trained ML model, accessible through a web-based React interface.
