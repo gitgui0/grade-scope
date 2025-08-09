@@ -1,8 +1,6 @@
-<img src="https://your-domain.com/logo.png" height="64px"/>
+<img src="https://gradepredictor-blond.vercel.app/logo512.png" height="64px"/>
 
-[![Build](https://img.shields.io/github/actions/workflow/status/your-org/gradescope/ci.yml?branch=main)](https://github.com/your-org/gradescope/actions)
-[![ML API](https://img.shields.io/website?url=https%3A%2F%2Fgradescope-ml-api.herokuapp.com)](https://gradescope-ml-api.herokuapp.com)
-[![Frontend](https://img.shields.io/website?url=https%3A%2F%2Fgradescope.vercel.app)](https://gradescope.vercel.app)
+URL: https://gradepredictor-blond.vercel.app/logo512.png
 
 ---
 
@@ -32,10 +30,10 @@ Now, start the frontend:
 ```bash
 cd frontend
 npm install
-npm run dev
+npm start
 ```
 
-Make sure to set environment variables for the backend (`application.properties`) and frontend (`.env`) where necessary. In deployment, configure these through your hosting provider (Vercel/Heroku).
+Make sure to set environment variables for the backend (`application.properties`) and frontend (`.env`) where necessary. In deployment, configure these through your hosting provider.
 
 ---
 
